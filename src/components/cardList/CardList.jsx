@@ -10,7 +10,7 @@ const CardList = () => {
   return (
     <section className={styles.CardList}>
       {data.slice(0, show).map((item) => (
-        <Card props={item} key={item.id} />
+        <Card data={item} key={item.id} />
       ))}
       <button className={styles.CardList__button} onClick={onHandleClick}>
         Show more
