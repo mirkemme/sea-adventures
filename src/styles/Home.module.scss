@@ -1,4 +1,47 @@
+.header {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &__logo {
+    @include centerPosition();
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .main {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+}
+
+.hero {
+  width: 100%;
+  height: auto;
+  position: relative;
+  background-color: $background-tertiary;
+
+  &__image {
+    width: 100%;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: 0.5;
+    }
+  }
+
+  &__text {
+    @include centerPosition();
+    @extend %heading2;
+    width: 80%;
+    height: auto;
+    text-align: center;
+    color: $text-tertiary;
+  }
 }
