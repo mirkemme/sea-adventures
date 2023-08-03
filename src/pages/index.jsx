@@ -1,14 +1,31 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import logoIcon from "../../public/assets/images/logo.svg";
 import heroImage from "../../public/assets/images/hero.jpeg";
 import bannerImage from "../../public/assets/images/banner.jpeg";
 import styles from "../styles/Home.module.scss";
 import CardList from "@/components/cardList";
 import { data } from "../mock/data.js";
+import { options } from "../mock/dropdownOptions.js";
 import Itinerary from "@/components/itinerary";
+import DropdownSelect from "@/components/dropdown";
 
 export default function Home() {
+  const [inputDropdownValue, setInputDropdownValue] = useState("");
+  const [dataFiltered, setDataFiltered] = useState(data);
+
+  useEffect(() => {
+    console.log(inputDropdownValue.label);
+    if (inputDropdownValue.label === "Mostra tutti") {
+      setDataFiltered(data);
+    } else {
+      setDataFiltered(
+        data.filter((item) => item.departure.Port.includes(inputDropdownValue.label))
+      );
+    }
+  }, [inputDropdownValue]);
+
   return (
     <>
       <Head>
@@ -30,7 +47,10 @@ export default function Home() {
           <h2 className={styles.hero__text}>Lorem ipsum dolor sit amet consectetur.</h2>
         </section>
         <section className={styles.content}>
-          <CardList data={data} />
+          <div className={styles.dropdownSelect}>
+            <DropdownSelect options={options} handleChange={setInputDropdownValue} />
+          </div>
+          <CardList data={dataFiltered} />
         </section>
         <section className={styles.banner}>
           <div className={styles.banner__image}>
