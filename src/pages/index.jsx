@@ -5,6 +5,8 @@ import heroImage from "../../public/assets/images/hero.jpeg";
 import bannerImage from "../../public/assets/images/banner.jpeg";
 import styles from "../styles/Home.module.scss";
 import CardList from "@/components/cardList";
+import { data } from "../mock/data.js";
+import Itinerary from "@/components/itinerary";
 
 export default function Home() {
   return (
@@ -28,7 +30,7 @@ export default function Home() {
           <h2 className={styles.hero__text}>Lorem ipsum dolor sit amet consectetur.</h2>
         </section>
         <section className={styles.content}>
-          <CardList />
+          <CardList data={data} />
         </section>
         <section className={styles.banner}>
           <div className={styles.banner__image}>
@@ -48,6 +50,9 @@ export default function Home() {
               <h2 className={styles.banner__thirdText}>Itinerari</h2>
             </div>
           </div>
+        </section>
+        <section className={styles.itinerary}>
+          <Itinerary data={data} />
         </section>
       </main>
     </>
