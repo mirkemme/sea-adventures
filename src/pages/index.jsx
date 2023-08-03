@@ -3,6 +3,7 @@ import Image from "next/image";
 import logoIcon from "../../public/assets/images/logo.svg";
 import heroImage from "../../public/assets/images/hero.jpeg";
 import styles from "../styles/Home.module.scss";
+import Card from "@/components/card";
 
 export default function Home() {
   return (
@@ -24,6 +25,9 @@ export default function Home() {
             <Image src={heroImage} width={1920} height={1279} />
           </div>
           <h2 className={styles.hero__text}>Lorem ipsum dolor sit amet consectetur.</h2>
+        </section>
+        <section className={styles.content}>
+          <Card />
         </section>
       </main>
     </>
