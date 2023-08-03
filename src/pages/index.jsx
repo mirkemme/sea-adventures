@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import logoIcon from "../../public/assets/images/logo.svg";
 import heroImage from "../../public/assets/images/hero.jpeg";
+import bannerImage from "../../public/assets/images/banner.jpeg";
 import styles from "../styles/Home.module.scss";
 import CardList from "@/components/cardList";
 
@@ -28,6 +29,25 @@ export default function Home() {
         </section>
         <section className={styles.content}>
           <CardList />
+        </section>
+        <section className={styles.banner}>
+          <div className={styles.banner__image}>
+            <Image src={bannerImage} width={1920} height={1279} alt="banner" />
+          </div>
+          <div className={styles.banner__text}>
+            <div className={styles.banner__text__wrapper}>
+              <h2 className={styles.banner__firstText}>+20</h2>
+              <h2 className={styles.banner__firstText}>Destinazioni</h2>
+            </div>
+            <div className={styles.banner__text__wrapper}>
+              <h2 className={styles.banner__secondText}>+15</h2>
+              <h2 className={styles.banner__secondText}>Imbarcazioni</h2>
+            </div>
+            <div className={styles.banner__text__wrapper}>
+              <h2 className={styles.banner__thirdText}>+40</h2>
+              <h2 className={styles.banner__thirdText}>Itinerari</h2>
+            </div>
+          </div>
         </section>
       </main>
     </>
