@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  gap: 8px;
+  gap: 5px;
   padding: $paddingMedium;
   background-color: $background-secondary;
   border-radius: 6px;
@@ -87,7 +87,7 @@
   &__buttonContainer {
     width: calc(100% - $paddingMedium - $paddingMedium);
     position: absolute;
-    bottom: 0;
+    bottom: $paddingMedium;
     left: $paddingMedium;
 
     &__button {

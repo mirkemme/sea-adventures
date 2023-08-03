@@ -1,9 +1,8 @@
 import Image from "next/image";
 import styles from "./Card.module.scss";
 import arrowIcon from "../../../public/assets/icons/right-arrow-alt.svg";
-import data from "../../mock/data.js";
 
-const Card = () => {
+const Card = ({ props }) => {
   return (
     <div className={styles.Card}>
       <p className={styles.Card__price}>
@@ -26,7 +25,7 @@ const Card = () => {
           <p className={styles.Card__time}>07:50</p>
         </div>
         <div className={styles.Card__arrowIcon}>
-          <Image src={arrowIcon} width={30} height={30} />
+          <Image src={arrowIcon} width={30} height={30} alt="arrow" />
         </div>
         <div className={styles.Card__wrapper}>
           <p className={styles.Card__date}>10/01/2023</p>
