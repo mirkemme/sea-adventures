@@ -3,7 +3,7 @@ import Image from "next/image";
 import logoIcon from "../../public/assets/images/logo.svg";
 import heroImage from "../../public/assets/images/hero.jpeg";
 import styles from "../styles/Home.module.scss";
-import Card from "@/components/card";
+import CardList from "@/components/cardList";
 
 export default function Home() {
   return (
@@ -16,18 +16,18 @@ export default function Home() {
       </Head>
       <header className={styles.header}>
         <div className={styles.header__logo}>
-          <Image src={logoIcon} width={40} height={40} />
+          <Image src={logoIcon} width={40} height={40} alt="logo" />
         </div>
       </header>
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.hero__image}>
-            <Image src={heroImage} width={1920} height={1279} />
+            <Image src={heroImage} width={1920} height={1279} alt="hero" />
           </div>
           <h2 className={styles.hero__text}>Lorem ipsum dolor sit amet consectetur.</h2>
         </section>
         <section className={styles.content}>
-          <Card />
+          <CardList />
         </section>
       </main>
     </>
