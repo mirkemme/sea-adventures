@@ -8,12 +8,13 @@ import styles from "../styles/Home.module.scss";
 import CardList from "@/components/cardList";
 import { data } from "../mock/data.js";
 import { options } from "../mock/dropdownOptions.js";
+import { groupList } from "../mock/groupList.js";
 import Itinerary from "@/components/itinerary";
 import DropdownSelect from "@/components/dropdown";
 
 export default function Home() {
-  const [inputDropdownValue, setInputDropdownValue] = useState("");
-  const [dataFiltered, setDataFiltered] = useState(data);
+  const [inputDropdownValue, setInputDropdownValue] = useState({ label: "Mostra tutti" });
+  const [dataFiltered, setDataFiltered] = useState([]);
 
   useEffect(() => {
     console.log(inputDropdownValue.label);
@@ -47,8 +48,9 @@ export default function Home() {
           <h2 className={styles.hero__text}>Lorem ipsum dolor sit amet consectetur.</h2>
         </section>
         <section className={styles.content}>
-          <div className={styles.dropdownSelect}>
+          <div className={styles.container}>
             <DropdownSelect options={options} handleChange={setInputDropdownValue} />
+            <DropdownSelect options={groupList} handleChange={setInputDropdownValue} />
           </div>
           <CardList data={dataFiltered} />
         </section>

@@ -24,7 +24,7 @@ const DropdownSelect = (props) => {
         className={styles.DropdownSelect__dropdown}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        {selected ? selected?.label : "Seleziona un porto di partenza"}
+        {selected ? selected?.label : options.options[0].label}
       </div>
       {options && (
         <ul
