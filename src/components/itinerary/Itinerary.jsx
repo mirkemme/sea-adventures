@@ -16,7 +16,12 @@ const Itinerary = ({ data }) => {
     setRandomItinerary(randomItinerary);
   }, []);
 
-  return <CardList data={randomItinerary} />;
+  return (
+    <section className={styles.Itinerary}>
+      <h3>Avventure da scoprire</h3>
+      <CardList data={randomItinerary} />;
+    </section>
+  );
 };
 
 export default Itinerary;
