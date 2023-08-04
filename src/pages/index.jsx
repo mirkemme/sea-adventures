@@ -16,6 +16,8 @@ import GroupShow from "@/components/groupShow";
 export default function Home() {
   const [inputDropdownValue, setInputDropdownValue] = useState({ label: "Mostra tutti" });
   const [dataFiltered, setDataFiltered] = useState([]);
+  const [selectedLeft, setSelectedLeft] = useState("");
+  const [selectedRight, setSelectedRight] = useState("");
 
   useEffect(() => {
     if (inputDropdownValue.label === "Mostra tutti") {
@@ -52,8 +54,20 @@ export default function Home() {
         </section>
         <section className={styles.content}>
           <div className={styles.container}>
-            <DropdownSelect options={groupList} handleChange={setInputDropdownValue} />
-            <DropdownSelect options={options} handleChange={setInputDropdownValue} />
+            <DropdownSelect
+              options={groupList}
+              handleChange={setInputDropdownValue}
+              setOtherSelected={setSelectedRight}
+              selected={selectedLeft}
+              setSelected={setSelectedLeft}
+            />
+            <DropdownSelect
+              options={options}
+              handleChange={setInputDropdownValue}
+              setOtherSelected={setSelectedLeft}
+              selected={selectedRight}
+              setSelected={setSelectedRight}
+            />
           </div>
           {inputDropdownValue.label === "Mostra per porto di partenza" ? (
             <GroupShow data={data} />

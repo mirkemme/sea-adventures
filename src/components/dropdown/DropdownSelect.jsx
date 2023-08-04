@@ -3,18 +3,22 @@ import styles from "./DropdownSelect.module.scss";
 
 const DropdownSelect = (props) => {
   const { options, handleChange } = props || null;
+  const { setOtherSelected } = props || null;
+  const { selected } = props || null;
+  const { setSelected } = props || null;
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("");
 
   const handleValue = (option) => {
     if (option.label === "Mostra tutti") {
       setSelected("");
       setIsOpen((prev) => !prev);
       handleChange(option);
+      setOtherSelected("");
     } else {
       setSelected(option);
       setIsOpen((prev) => !prev);
       handleChange(option);
+      setOtherSelected("");
     }
   };
 
