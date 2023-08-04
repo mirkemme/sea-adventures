@@ -1,7 +1,6 @@
+import { useState } from "react";
 import Card from "../card/Card";
 import styles from "./CardList.module.scss";
-
-import { useState } from "react";
 
 const CardList = ({ data }) => {
   const [show, setShow] = useState(8);
@@ -13,9 +12,14 @@ const CardList = ({ data }) => {
         <Card data={item} key={item.id} />
       ))}
       {data.length > 8 && (
-        <button className={styles.CardList__button} onClick={onHandleClick}>
-          Show more
-        </button>
+        <div className={styles.CardList__btnContainer}>
+          <button
+            className={styles.CardList__btnContainer__button}
+            onClick={onHandleClick}
+          >
+            Show more
+          </button>
+        </div>
       )}
     </section>
   );

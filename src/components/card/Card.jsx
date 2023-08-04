@@ -14,7 +14,7 @@ const Card = ({ data }) => {
           <h4 className={styles.Card__departure}>partenza da</h4>
           <h3 className={styles.Card__departureLocality}>{data.departure.Port}</h3>
         </div>
-        <div className={styles.Card__wrapper}>
+        <div className={styles.Card__wrapperRight}>
           <p className={styles.Card__boat}>{data.boatType}</p>
           <p className={styles.Card__duration}>{data.numberOfDays} giorni</p>
         </div>
@@ -29,7 +29,7 @@ const Card = ({ data }) => {
         <div className={styles.Card__arrowIcon}>
           <Image src={arrowIcon} width={30} height={30} alt="arrow" />
         </div>
-        <div className={styles.Card__wrapper}>
+        <div className={styles.Card__wrapperRight}>
           <p className={styles.Card__date}>
             {data.departureDate.slice(0, 10).split("-").reverse().join("/")}
           </p>

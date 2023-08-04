@@ -9,11 +9,11 @@ const DropdownSelect = (props) => {
   const handleValue = (option) => {
     if (option.label === "Mostra tutti") {
       setSelected("");
-      setIsOpen(false);
+      setIsOpen((prev) => !prev);
       handleChange(option);
     } else {
       setSelected(option);
-      setIsOpen(false);
+      setIsOpen((prev) => !prev);
       handleChange(option);
     }
   };
@@ -21,7 +21,9 @@ const DropdownSelect = (props) => {
   return (
     <div className={styles.DropdownSelect}>
       <div
-        className={styles.DropdownSelect__dropdown}
+        className={`${styles.DropdownSelect__dropdown} ${
+          isOpen ? styles.DropdownSelect__arrowTransform : ""
+        }`}
         onClick={() => setIsOpen((prev) => !prev)}
       >
         {selected ? selected?.label : options.options[0].label}
