@@ -35,7 +35,7 @@ export const data = [
     reservations: 4,
     reservationsType: "cabine",
     boatType: "Barca a vela",
-    departureDate: "2023-08-07 7:50:00",
+    departureDate: "2023-08-07 07:50:00",
     arrivalDate: "2023-08-09 15:00:00",
   },
   {
@@ -94,7 +94,7 @@ export const data = [
     reservations: 7,
     reservationsType: "cabine",
     boatType: "Catamarano",
-    departureDate: "2023-08-07 9:00:00",
+    departureDate: "2023-08-07 09:00:00",
     arrivalDate: "2023-08-13 18:00:00",
   },
   {
@@ -128,7 +128,7 @@ export const data = [
     reservations: 2,
     reservationsType: "cabine",
     boatType: "Barca a vela",
-    departureDate: "2023-08-10 8:20:00",
+    departureDate: "2023-08-10 08:20:00",
     arrivalDate: "2023-08-11 17:30:00",
   },
   {
@@ -156,7 +156,7 @@ export const data = [
     reservations: 8,
     reservationsType: "persone",
     boatType: "Gommone",
-    departureDate: "2023-08-11 9:30:00",
+    departureDate: "2023-08-11 09:30:00",
     arrivalDate: "2023-08-11 17:00:00",
   },
   {
@@ -200,7 +200,7 @@ export const data = [
     reservations: 7,
     reservationsType: "cabine",
     boatType: "Yacht",
-    departureDate: "2023-08-24 9:00:00",
+    departureDate: "2023-08-24 09:00:00",
     arrivalDate: "2023-08-27 19:00:00",
   },
   {
@@ -444,7 +444,7 @@ export const data = [
     reservations: 5,
     reservationsType: "cabina",
     boatType: "Catamarano",
-    departureDate: "2023-08-10 9:00:00",
+    departureDate: "2023-08-10 09:00:00",
     arrivalDate: "2023-08-16 19:00:00",
   },
   {
@@ -478,7 +478,7 @@ export const data = [
     reservations: 8,
     reservationsType: "persona",
     boatType: "Barca",
-    departureDate: "2023-08-24 9:00:00",
+    departureDate: "2023-08-24 09:00:00",
     arrivalDate: "2023-08-24 18:00:00",
   },
   {
@@ -506,7 +506,7 @@ export const data = [
     reservations: 8,
     reservationsType: "persona",
     boatType: "Gommone",
-    departureDate: "2023-08-12 8:20:00",
+    departureDate: "2023-08-12 08:20:00",
     arrivalDate: "2023-08-12 17:30:00",
   },
   {
@@ -534,7 +534,7 @@ export const data = [
     reservations: 8,
     reservationsType: "persone",
     boatType: "Gommone",
-    departureDate: "2023-11-16 9:30:00",
+    departureDate: "2023-11-16 09:30:00",
     arrivalDate: "2023-11-16 17:00:00",
   },
   {
@@ -596,7 +596,7 @@ export const data = [
     reservations: 4,
     reservationsType: "cabine",
     boatType: "Barca a vela",
-    departureDate: "2023-08-10 8:20:00",
+    departureDate: "2023-08-10 08:20:00",
     arrivalDate: "2023-08-11 17:30:00",
   },
   {
@@ -699,7 +699,7 @@ export const data = [
     reservations: 8,
     reservationsType: "cabine",
     boatType: "Barca a Vela",
-    departureDate: "2023-08-10 9:00:00",
+    departureDate: "2023-08-10 09:00:00",
     arrivalDate: "2023-08-16 18:00:00",
   },
   {
@@ -771,7 +771,7 @@ export const data = [
     reservations: 7,
     reservationsType: "cabine",
     boatType: "Yacht",
-    departureDate: "2023-08-14 9:00:00",
+    departureDate: "2023-08-14 09:00:00",
     arrivalDate: "2023-08-17 19:00:00",
   },
   {
@@ -799,7 +799,7 @@ export const data = [
     reservations: 6,
     reservationsType: "persone",
     boatType: "Gommone",
-    departureDate: "2023-08-18 9:30:00",
+    departureDate: "2023-08-18 09:30:00",
     arrivalDate: "2023-08-18 17:00:00",
   },
   {
@@ -843,7 +843,7 @@ export const data = [
     reservations: 7,
     reservationsType: "cabine",
     boatType: "Barca a vela",
-    departureDate: "2023-08-22 8:00:00",
+    departureDate: "2023-08-22 08:00:00",
     arrivalDate: "2023-08-25 18:00:00",
   },
   {
@@ -915,7 +915,7 @@ export const data = [
     reservations: 8,
     reservationsType: "persone",
     boatType: "Gommone",
-    departureDate: "2023-08-22 9:30:00",
+    departureDate: "2023-08-22 09:30:00",
     arrivalDate: "2023-08-22 17:00:00",
   },
   {
@@ -959,7 +959,7 @@ export const data = [
     reservations: 7,
     reservationsType: "cabine",
     boatType: "Yacht",
-    departureDate: "2023-08-14 9:00:00",
+    departureDate: "2023-08-14 09:00:00",
     arrivalDate: "2023-08-16 19:00:00",
   },
   {
@@ -1031,7 +1031,7 @@ export const data = [
     reservations: 6,
     reservationsType: "persone",
     boatType: "Gommone",
-    departureDate: "2023-08-22 9:30:00",
+    departureDate: "2023-08-22 09:30:00",
     arrivalDate: "2023-08-22 17:00:00",
   },
   {
@@ -1075,7 +1075,7 @@ export const data = [
     reservations: 7,
     reservationsType: "cabine",
     boatType: "Barca a vela",
-    departureDate: "2023-08-23 8:00:00",
+    departureDate: "2023-08-23 08:00:00",
     arrivalDate: "2023-08-26 18:00:00",
   },
   {
@@ -1119,7 +1119,7 @@ export const data = [
     reservations: 7,
     reservationsType: "cabine",
     boatType: "Yacht",
-    departureDate: "2023-08-25 9:00:00",
+    departureDate: "2023-08-25 09:00:00",
     arrivalDate: "2023-08-28 19:00:00",
   },
   {

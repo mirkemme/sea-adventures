@@ -24,7 +24,7 @@ const Card = ({ data }) => {
           <p className={styles.Card__date}>
             {data.arrivalDate.slice(0, 10).split("-").reverse().join("/")}
           </p>
-          <p className={styles.Card__time}>07:50</p>
+          <p className={styles.Card__time}>{data.arrivalDate.slice(11, 16)}</p>
         </div>
         <div className={styles.Card__arrowIcon}>
           <Image src={arrowIcon} width={30} height={30} alt="arrow" />
@@ -33,7 +33,7 @@ const Card = ({ data }) => {
           <p className={styles.Card__date}>
             {data.departureDate.slice(0, 10).split("-").reverse().join("/")}
           </p>
-          <p className={styles.Card__time}>15:00</p>
+          <p className={styles.Card__time}>{data.departureDate.slice(11, 16)}</p>
         </div>
       </div>
       <div className={styles.Card__wrapper}>
