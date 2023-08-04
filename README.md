@@ -1,3 +1,5 @@
+SeaAdventures è un’applicazione web responsive per un Tour Operator specializzato nell’organizzazione di itinerari marittimi con partenze da diversi porti italiani e con la prospettiva di incrementare i porti di partenza e destinazione in tutto il mondo. L’applicazione offre esperienze uniche a bordo di diverse tipologie di imbarcazioni, consentendo ai viaggiatori di scoprire le meraviglie del mare e delle coste.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
