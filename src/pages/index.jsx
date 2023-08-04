@@ -11,21 +11,24 @@ import { options } from "../mock/dropdownOptions.js";
 import { groupList } from "../mock/groupList.js";
 import Itinerary from "@/components/itinerary";
 import DropdownSelect from "@/components/dropdown";
+import GroupShow from "@/components/groupShow";
 
 export default function Home() {
   const [inputDropdownValue, setInputDropdownValue] = useState({ label: "Mostra tutti" });
   const [dataFiltered, setDataFiltered] = useState([]);
 
   useEffect(() => {
-    console.log(inputDropdownValue.label);
     if (inputDropdownValue.label === "Mostra tutti") {
       setDataFiltered(data);
-    } else {
+    } else if (
+      inputDropdownValue.label !== "Mostra per porto di partenza" &&
+      inputDropdownValue.label !== "Seleziona un porto"
+    ) {
       setDataFiltered(
         data.filter((item) => item.departure.Port.includes(inputDropdownValue.label))
       );
     }
-  }, [inputDropdownValue]);
+  }, [inputDropdownValue.value]);
 
   return (
     <>
@@ -49,10 +52,14 @@ export default function Home() {
         </section>
         <section className={styles.content}>
           <div className={styles.container}>
-            <DropdownSelect options={options} handleChange={setInputDropdownValue} />
             <DropdownSelect options={groupList} handleChange={setInputDropdownValue} />
+            <DropdownSelect options={options} handleChange={setInputDropdownValue} />
           </div>
-          <CardList data={dataFiltered} />
+          {inputDropdownValue.label === "Mostra per porto di partenza" ? (
+            <GroupShow data={data} />
+          ) : (
+            <CardList data={dataFiltered} />
+          )}
         </section>
         <section className={styles.banner}>
           <div className={styles.banner__image}>
