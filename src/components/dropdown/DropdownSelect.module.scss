@@ -10,7 +10,7 @@
     width: 280px;
     height: 40px;
     padding-left: $paddingSmall;
-    border-radius: 2px;
+    border-radius: $roundedMinimal;
     border: 1px solid rgb(36, 36, 36);
     cursor: pointer;
 
@@ -41,6 +41,7 @@
     padding: $paddingSmall;
     background-color: white;
     border: 1px solid rgb(36, 36, 36);
+    border-top: none;
     list-style-type: none;
     transition: all 0.5s ease;
     visibility: hidden;

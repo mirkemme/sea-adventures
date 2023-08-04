@@ -77,11 +77,13 @@
   padding: 0 $paddingExtraLarge;
 }
 
+// mobile
 @media screen and (max-width: 767px) {
   .banner__text {
     height: 100%;
     flex-direction: column;
   }
+
   .container {
     height: 150px;
     flex-direction: column;
@@ -91,5 +93,6 @@
   }
 }
 
+// tablet
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 }

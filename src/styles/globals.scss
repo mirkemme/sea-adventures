@@ -14,7 +14,8 @@ body {
   height: 100vh;
   max-height: 100%;
   overflow-x: hidden;
-  font-family: "Noto Sans";
+  font-family: "Noto Sans", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-size: 16px;
   background-color: $background-primary;
   color: $btn-main;
@@ -22,7 +23,6 @@ body {
 
 #__next {
   @include flexboxCenterColumn();
-
   align-items: flex-start;
   height: auto;
   max-height: 100%;
@@ -56,7 +56,7 @@ a,
 input,
 button {
   cursor: pointer;
-  transition: color 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 a {
@@ -65,8 +65,12 @@ a {
   }
 }
 
-input[type="submit"]:hover {
-  color: colorShade(white, $btn-main, 40%);
+button:hover {
+  background-color: colorShade(white, $btn-main, 10%);
+}
+
+button:active {
+  background-color: colorShade(white, $btn-main, 60%);
 }
 
 @media screen and (max-width: 767px) {
