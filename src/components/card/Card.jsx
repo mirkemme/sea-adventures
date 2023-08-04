@@ -22,18 +22,18 @@ const Card = ({ data }) => {
       <div className={styles.Card__container}>
         <div className={styles.Card__wrapper}>
           <p className={styles.Card__date}>
-            {data.arrivalDate.slice(0, 10).split("-").reverse().join("/")}
+            {data.departureDate.slice(0, 10).split("-").reverse().join("/")}
           </p>
-          <p className={styles.Card__time}>{data.arrivalDate.slice(11, 16)}</p>
+          <p className={styles.Card__time}>{data.departureDate.slice(11, 16)}</p>
         </div>
         <div className={styles.Card__arrowIcon}>
           <Image src={arrowIcon} width={30} height={30} alt="arrow" />
         </div>
         <div className={styles.Card__wrapperRight}>
           <p className={styles.Card__date}>
-            {data.departureDate.slice(0, 10).split("-").reverse().join("/")}
+            {data.arrivalDate.slice(0, 10).split("-").reverse().join("/")}
           </p>
-          <p className={styles.Card__time}>{data.departureDate.slice(11, 16)}</p>
+          <p className={styles.Card__time}>{data.arrivalDate.slice(11, 16)}</p>
         </div>
       </div>
       <div className={styles.Card__wrapper}>
