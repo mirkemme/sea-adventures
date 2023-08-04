@@ -1,17 +1,21 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import logoIcon from "../../public/assets/images/logo.svg";
-import heroImage from "../../public/assets/images/hero.jpeg";
-import bannerImage from "../../public/assets/images/banner.jpeg";
+// style
 import styles from "../styles/Home.module.scss";
-import CardList from "@/components/cardList";
+// mock
 import { data } from "../mock/data.js";
-import { options } from "../mock/dropdownOptions.js";
 import { groupList } from "../mock/groupList.js";
+import { options } from "../mock/dropdownOptions.js";
+// components
+import CardList from "@/components/cardList";
 import Itinerary from "@/components/itinerary";
 import DropdownSelect from "@/components/dropdown";
 import GroupShow from "@/components/groupShow";
+// logo and images
+import logoIcon from "../../public/assets/images/logo.svg";
+import heroImage from "../../public/assets/images/hero.jpeg";
+import bannerImage from "../../public/assets/images/banner.jpeg";
 
 export default function Home() {
   const [inputDropdownValue, setInputDropdownValue] = useState({ label: "Mostra tutti" });
