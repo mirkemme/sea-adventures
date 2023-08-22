@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 // style
@@ -18,10 +18,19 @@ import heroImage from "../../public/assets/images/hero.jpeg";
 import bannerImage from "../../public/assets/images/banner.jpeg";
 
 export default function Home() {
+  const portList = useRef([]);
   const [inputDropdownValue, setInputDropdownValue] = useState({ label: "Mostra tutti" });
   const [dataFiltered, setDataFiltered] = useState([]);
   const [selectedLeft, setSelectedLeft] = useState("");
   const [selectedRight, setSelectedRight] = useState("");
+
+  // tutti i porti di partenza
+  useEffect(() => {
+    data.map((tour) => {
+      if (!portList.current.some((item) => item.Port === tour.departure.Port))
+        portList.current.push(tour.departure);
+    });
+  }, []);
 
   useEffect(() => {
     if (inputDropdownValue.label === "Mostra tutti") {
@@ -74,7 +83,7 @@ export default function Home() {
             />
           </div>
           {inputDropdownValue.label === "Mostra per porto di partenza" ? (
-            <GroupShow data={data} />
+            <GroupShow props={{ data, portList }} />
           ) : (
             <CardList data={dataFiltered} />
           )}

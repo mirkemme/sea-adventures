@@ -7,7 +7,6 @@ const Itinerary = ({ data }) => {
 
   function getMultipleRandom(data, num) {
     const shuffled = [...data].sort(() => 0.5 - Math.random());
-
     return shuffled.slice(0, num);
   }
 
@@ -19,7 +18,7 @@ const Itinerary = ({ data }) => {
   return (
     <section className={styles.Itinerary}>
       <h3>Avventure da scoprire</h3>
-      <CardList data={randomItinerary} />;
+      <CardList data={randomItinerary} />
     </section>
   );
 };
