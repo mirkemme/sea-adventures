@@ -14,8 +14,8 @@ import DropdownSelect from "@/components/dropdown";
 import GroupShow from "@/components/groupShow";
 // logo and images
 import logoIcon from "../../public/assets/images/logo.svg";
-import heroImage from "../../public/assets/images/hero.jpeg";
 import bannerImage from "../../public/assets/images/banner.jpeg";
+import Hero from "@/components/hero";
 
 export default function Home() {
   const portList = useRef([]);
@@ -59,12 +59,7 @@ export default function Home() {
         </div>
       </header>
       <main className={styles.main}>
-        <section className={styles.hero}>
-          <div className={styles.hero__image}>
-            <Image src={heroImage} width={1920} height={1279} alt="hero" />
-          </div>
-          <h2 className={styles.hero__text}>Lorem ipsum dolor sit amet consectetur.</h2>
-        </section>
+        <Hero />
         <section className={styles.content}>
           <div className={styles.container}>
             <DropdownSelect
