@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { formatTime } from "@/utils/formatTime";
 import { formatDate } from "@/utils/formatDate";
@@ -5,6 +6,9 @@ import styles from "./Card.module.scss";
 import arrowIcon from "../../../public/assets/icons/right-arrow-alt.svg";
 
 const Card = ({ data }) => {
+  const router = useRouter();
+  const onHandleClick = (id) => router.push(`/${id}`);
+
   return (
     <div className={styles.Card}>
       <p className={styles.Card__price}>
@@ -41,7 +45,12 @@ const Card = ({ data }) => {
         </p>
       </div>
       <div className={styles.Card__buttonContainer}>
-        <button className={styles.Card__buttonContainer__button}>prenota</button>
+        <button
+          className={styles.Card__buttonContainer__button}
+          onClick={() => onHandleClick(data.id)}
+        >
+          prenota
+        </button>
       </div>
     </div>
   );
