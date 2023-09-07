@@ -4,7 +4,7 @@ import Image from "next/image";
 // style
 import styles from "../styles/Home.module.scss";
 // mock
-import { data } from "../mock/data.js";
+// import { data } from "../mock/data.js";
 import { groupList } from "../mock/groupList.js";
 import { options } from "../mock/dropdownOptions.js";
 // components
@@ -14,18 +14,18 @@ import DropdownSelect from "@/components/dropdown";
 import GroupShow from "@/components/groupShow";
 // logo and images
 import logoIcon from "../../public/assets/images/logo.svg";
-import bannerImage from "../../public/assets/images/banner.jpeg";
 import Hero from "@/components/hero";
 import Banner from "@/components/banner";
+export const API_BASE_URL = "https://api.npoint.io/fb404a223a346cab07ec";
 
-export default function Home() {
+export default function Home({ data }) {
   const portList = useRef([]);
   const [inputDropdownValue, setInputDropdownValue] = useState({ label: "Mostra tutti" });
   const [dataFiltered, setDataFiltered] = useState([]);
   const [selectedLeft, setSelectedLeft] = useState("");
   const [selectedRight, setSelectedRight] = useState("");
 
-  // tutti i porti di partenza
+  // crea un array con tutti i porti di partenza
   useEffect(() => {
     data.map((tour) => {
       if (!portList.current.some((item) => item.Port === tour.departure.Port))
@@ -91,4 +91,14 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+/* SERVER SIDE RENDERING */
+export async function getServerSideProps() {
+  const res = await fetch(API_BASE_URL);
+  const data = await res.json();
+
+  return {
+    props: { data },
+  };
 }
