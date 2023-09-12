@@ -21,9 +21,22 @@
     );
   }
 
-  &__title {
+  &__backIcon {
+    width: rem(40px);
+    height: rem(40px);
     position: absolute;
-    z-index: 1;
+    top: $paddingSmall;
+    right: $paddingSmall;
+    color: $background-primary;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  &__boatIcon {
+    width: rem(25px);
+    height: rem(25px);
+    color: $background-primary;
+    opacity: 0.8;
   }
 
   &__container {
@@ -188,6 +201,11 @@
       padding: $paddingMedium $paddingExtraLarge;
     }
 
+    &__backIcon {
+      top: $paddingMedium;
+      right: $paddingExtraLarge;
+    }
+
     &__details {
       position: absolute;
       width: 20%;
@@ -205,11 +223,24 @@
       font-size: rem(26px);
     }
 
+    &__wrapper {
+      padding: $paddingSmall;
+    }
+
+    &__date {
+      font-size: rem(16px);
+    }
+
     &__stages {
       gap: rem(15px);
 
       &__wrapper {
         gap: rem(15px);
+      }
+
+      &__stage {
+        padding: $paddingSmall;
+        font-size: rem(16px);
       }
     }
 
@@ -217,6 +248,19 @@
       @include flexboxCenter;
       flex-wrap: wrap;
       gap: rem(15px);
+    }
+
+    &__reservationsText {
+      font-size: rem(14px);
+    }
+
+    &__reservations,
+    &__reservationsType,
+    &__boatType,
+    &__ratings,
+    &__nOfReviews,
+    &__reservationsAvailable {
+      font-size: rem(26px);
     }
   }
 }
