@@ -1,11 +1,24 @@
 .Tour {
   @include flexboxCenterColumn;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   position: relative;
-  padding: 0 $paddingSmall;
-  justify-content: flex-start;
+  padding: 0 $paddingSmall $paddingExtraSmall $paddingSmall;
+  justify-content: space-between;
   background-color: white;
+
+  &__wrapper {
+    @include flexboxCenterColumn;
+    padding: $paddingExtraSmall;
+    background-color: $background-secondary;
+    border: 2px solid colorShade($btn-main, white, 15%);
+    border-radius: $roundedExtraSmall;
+  }
+
+  &__container {
+    width: 100%;
+    height: auto;
+  }
 
   &__header {
     position: absolute;
@@ -30,18 +43,6 @@
     color: $background-primary;
     opacity: 0.8;
     cursor: pointer;
-  }
-
-  &__boatIcon {
-    width: rem(25px);
-    height: rem(25px);
-    color: $background-primary;
-    opacity: 0.8;
-  }
-
-  &__container {
-    width: 100%;
-    height: auto;
   }
 
   &__gallery {
@@ -91,32 +92,61 @@
     font-size: rem(20px);
   }
 
+  &__counter {
+    @include flexboxCenter;
+    gap: rem(12px);
+    height: 100%;
+  }
+
+  &__countIcon {
+    cursor: pointer;
+
+    svg {
+      display: block;
+      width: rem(38px);
+      height: rem(38px);
+      color: $background-primary;
+      opacity: 0.8;
+    }
+  }
+
   &__info {
     @include flexboxCenter();
     justify-content: space-evenly;
     align-items: center;
-    height: 100%;
-    padding: $paddingSmall 0;
+    padding-top: $paddingSmall;
+    padding-bottom: $paddingExtraSmall;
+
+    &__wrapper {
+      @include flexboxCenterColumn;
+      height: rem(110px);
+      justify-content: space-between;
+      padding: $paddingExtraSmall $paddingSmall;
+      background-color: $background-secondary;
+      border: 2px solid colorShade($btn-main, white, 15%);
+      border-radius: $roundedExtraSmall;
+    }
+
+    &__container {
+      @include flexboxCenter;
+      gap: rem(10px);
+    }
   }
 
-  &__wrapper {
-    @include flexboxCenterColumn;
-    padding: $paddingExtraSmall;
-    background-color: $background-secondary;
-    border: 2px solid colorShade($btn-main, white, 15%);
-    border-radius: $roundedExtraSmall;
-    height: 100%;
+  &__arrowDownIcon {
+    width: rem(25px);
+    height: rem(25px);
+    color: $background-primary;
+    opacity: 0.8;
   }
 
-  &__departureText,
-  &__arrivalText {
+  &__departureText {
     color: $text-secondary;
     text-transform: uppercase;
   }
 
-  &__departure,
-  &__arrival {
-    margin-top: -6px;
+  &__departure {
+    margin-top: -10px;
     font-weight: 500;
     font-size: rem(22px);
     text-align: center;
@@ -131,7 +161,7 @@
   }
 
   &__description__text {
-    padding: $paddingSmall 0;
+    padding-bottom: $paddingExtraSmall;
   }
 
   &__stages {
@@ -139,7 +169,7 @@
     width: 100%;
     height: auto;
     flex-wrap: wrap;
-    padding: $paddingSmall 0;
+    padding: $paddingExtraSmall 0;
     gap: rem(4px);
 
     &__wrapper {
@@ -156,17 +186,25 @@
     }
   }
 
+  &__boatIcon {
+    width: rem(25px);
+    height: rem(25px);
+    color: $background-primary;
+    opacity: 0.8;
+  }
+
   &__accessory {
     @include flexboxCenter;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: rem(8px);
-    padding: $paddingSmall 0;
+    padding: $paddingExtraSmall 0;
   }
 
-  &__reservationsText {
+  &__text {
     text-transform: uppercase;
     font-weight: 400;
+    color: $text-secondary;
   }
 
   &__reservations,
@@ -176,7 +214,7 @@
   &__nOfReviews,
   &__reservationsAvailable {
     font-size: rem(22px);
-    color: $text-secondary;
+    text-transform: capitalize;
   }
 }
 
@@ -186,6 +224,10 @@
 @media screen and (min-width: 768px) {
   .Tour {
     padding: 0 $paddingExtraLarge $paddingMedium $paddingExtraLarge;
+
+    &__wrapper {
+      padding: $paddingSmall;
+    }
 
     &__gallery {
       height: 450px;
@@ -202,13 +244,15 @@
     }
 
     &__backIcon {
+      width: rem(50px);
+      height: rem(50px);
       top: $paddingMedium;
       right: $paddingExtraLarge;
     }
 
     &__details {
       position: absolute;
-      width: 20%;
+      width: 25%;
       height: 100px;
       bottom: 0;
       left: 0;
@@ -216,19 +260,53 @@
     }
 
     &__price {
-      font-size: rem(34px);
+      font-size: rem(38px);
     }
 
     &__nDays {
+      font-size: rem(24px);
+    }
+
+    &__info {
+      @include flexboxCenter();
+      justify-content: space-evenly;
+      align-items: center;
+      padding-top: $paddingSmall;
+      padding-bottom: $paddingExtraSmall;
+
+      &__wrapper {
+        height: rem(150px);
+        padding: $paddingMedium;
+      }
+    }
+
+    &__count {
+      font-size: rem(28px);
+    }
+
+    &__countIcon {
+      svg {
+        width: rem(50px);
+        height: rem(50px);
+      }
+
+      &__container {
+        @include flexboxCenter;
+        gap: rem(10px);
+      }
+    }
+
+    &__arrowDownIcon {
+      width: rem(35px);
+      height: rem(35px);
+    }
+
+    &__departure {
       font-size: rem(26px);
     }
 
-    &__wrapper {
-      padding: $paddingSmall;
-    }
-
     &__date {
-      font-size: rem(16px);
+      font-size: rem(18px);
     }
 
     &__stages {
@@ -240,14 +318,23 @@
 
       &__stage {
         padding: $paddingSmall;
-        font-size: rem(16px);
+        font-size: rem(18px);
       }
+    }
+
+    &__boatIcon {
+      width: rem(35px);
+      height: rem(35px);
     }
 
     &__accessory {
       @include flexboxCenter;
       flex-wrap: wrap;
       gap: rem(15px);
+    }
+
+    &__text {
+      font-size: rem(16px);
     }
 
     &__reservationsText {

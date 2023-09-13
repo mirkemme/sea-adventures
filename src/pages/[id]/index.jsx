@@ -1,31 +1,48 @@
+import { useState } from "react";
 import { Router, useRouter } from "next/router";
 import { API_BASE_URL } from "..";
 import styles from "./index.module.scss";
 import { formatTime } from "@/utils/formatTime";
 import { formatDate } from "@/utils/formatDate";
+import {
+  AiOutlineArrowRight,
+  AiOutlineArrowLeft,
+  AiOutlineArrowDown,
+} from "react-icons/ai";
 import { LuSailboat } from "react-icons/lu";
-import { BsArrowLeftSquareFill } from "react-icons/bs";
+import { BsArrowLeftSquareFill, BsArrowDown } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Button from "@/components/button";
 
 export default function Tour({ data }) {
   const router = useRouter();
+  const [count, setCount] = useState(1);
+  const [price, setPrice] = useState(data.budget.value);
+
   const onHandleBack = () => router.back();
+  const onHandleCount = (op) => {
+    if (op === "plus" && count < data.reservationsAvailable) {
+      setCount(count + 1);
+      setPrice(price + data.budget.value);
+    } else if (op === "minus" && count > 1) {
+      setCount(count - 1);
+      setPrice(price - data.budget.value);
+    }
+  };
 
   return (
     <section className={styles.Tour}>
       <header className={styles.Tour__header}>
         <h1 className={styles.Tour__title}>{data?.title}</h1>
-        {/* <div className={styles.Tour__backButton}> */}
         <BsArrowLeftSquareFill
           className={styles.Tour__backIcon}
           onClick={onHandleBack}
           alt="back"
         />
-        {/* </div> */}
       </header>
       <div className={`${styles.Tour__gallery} `}>
         <Swiper
@@ -48,7 +65,7 @@ export default function Tour({ data }) {
         </Swiper>
         <div className={styles.Tour__details}>
           <p className={styles.Tour__price}>
-            {data?.budget?.value}
+            {price}
             {data?.budget?.currencyCode}
           </p>
           <p className={styles.Tour__nDays}>
@@ -58,20 +75,42 @@ export default function Tour({ data }) {
       </div>
       <div className={styles.Tour__container}>
         <div className={styles.Tour__info}>
-          <div className={styles.Tour__wrapper}>
+          <div className={styles.Tour__info__wrapper}>
+            <p className={styles.Tour__reservationsType}>{data.reservationsType}</p>
+            <div className={styles.Tour__counter}>
+              <div className={styles.Tour__countIcon}>
+                <Button
+                  handleClick={() => onHandleCount("minus")}
+                  count={count}
+                  type={"minus"}
+                />
+              </div>
+              <h3 className={styles.Tour__count}>{count}</h3>
+              <div className={styles.Tour__countIcon}>
+                <Button
+                  handleClick={() => onHandleCount("plus")}
+                  count={count}
+                  type={"plus"}
+                />
+              </div>
+            </div>
+          </div>
+          <div className={styles.Tour__info__wrapper}>
             <p className={styles.Tour__departureText}>Partenza da</p>
             <p className={styles.Tour__departure}>{data?.departure?.Port}</p>
-            <p className={styles.Tour__date}>
-              {formatDate(data?.departureDate)}{" "}
-              <span>{formatTime(data?.departureDate)}</span>
-            </p>
-          </div>
-          <div className={styles.Tour__wrapper}>
-            <p className={styles.Tour__arrivalText}>Arrivo a</p>
-            <p className={styles.Tour__arrival}>{data?.arrival.Port}</p>
-            <p className={styles.Tour__date}>
-              {formatDate(data?.arrivalDate)} <span>{formatTime(data?.arrivalDate)}</span>
-            </p>
+            <div className={styles.Tour__info__container}>
+              <div>
+                <p className={styles.Tour__date}>
+                  {formatDate(data?.departureDate)}{" "}
+                  <span>{formatTime(data?.departureDate)}</span>
+                </p>
+                <p className={styles.Tour__date}>
+                  {formatDate(data?.arrivalDate)}{" "}
+                  <span>{formatTime(data?.arrivalDate)}</span>
+                </p>
+              </div>
+              <BsArrowDown className={styles.Tour__arrowDownIcon} />
+            </div>
           </div>
         </div>
       </div>
@@ -101,29 +140,29 @@ export default function Tour({ data }) {
         <h3>Accessori</h3>
         <div className={styles.Tour__accessory}>
           <div className={styles.Tour__wrapper}>
-            <h6 className={styles.Tour__reservationsText}>disponibilità</h6>
+            <h6 className={styles.Tour__text}>disponibilità</h6>
             <p className={styles.Tour__reservationsAvailable}>
               {data?.reservationsAvailable}
             </p>{" "}
           </div>
           <div className={styles.Tour__wrapper}>
-            <h6 className={styles.Tour__reservationsText}>prenotazioni</h6>
+            <h6 className={styles.Tour__text}>prenotazioni</h6>
             <p className={styles.Tour__reservations}>{data?.reservations}</p>
           </div>
           <div className={styles.Tour__wrapper}>
-            <h6 className={styles.Tour__reservationsText}>tipo di prenotazione</h6>
+            <h6 className={styles.Tour__text}>tipo di prenotazione</h6>
             <p className={styles.Tour__reservationsType}>{data?.reservationsType}</p>
           </div>
           <div className={styles.Tour__wrapper}>
-            <h6 className={styles.Tour__reservationsText}>tipo di barca</h6>
+            <h6 className={styles.Tour__text}>tipo di barca</h6>
             <p className={styles.Tour__boatType}>{data?.boatType}</p>
           </div>
           <div className={styles.Tour__wrapper}>
-            <h6 className={styles.Tour__reservationsText}>valutazione</h6>
+            <h6 className={styles.Tour__text}>valutazione</h6>
             <p className={styles.Tour__ratings}>{data?.ratings}</p>
           </div>
           <div className={styles.Tour__wrapper}>
-            <h6 className={styles.Tour__reservationsText}>recensioni</h6>
+            <h6 className={styles.Tour__text}>recensioni</h6>
             <p className={styles.Tour__nOfReviews}>{data?.numberOfReviews}</p>
           </div>
         </div>
