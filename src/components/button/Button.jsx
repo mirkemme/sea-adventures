@@ -1,7 +1,7 @@
 import styles from "./Button.module.scss";
 import { LuPlusSquare, LuMinusSquare } from "react-icons/lu";
 
-const Button = ({ handleClick, count, type }) => {
+const Button = ({ handleClick, type }) => {
   return (
     <>
       {type === "plus" ? (

@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { API_BASE_URL } from "..";
 import styles from "./index.module.scss";
 import { formatTime } from "@/utils/formatTime";
 import { formatDate } from "@/utils/formatDate";
-import {
-  AiOutlineArrowRight,
-  AiOutlineArrowLeft,
-  AiOutlineArrowDown,
-} from "react-icons/ai";
 import { LuSailboat } from "react-icons/lu";
-import { BsArrowLeftSquareFill, BsArrowDown } from "react-icons/bs";
+import {
+  BsArrowLeftSquareFill,
+  BsArrowDown,
+  BsBookmark,
+  BsBookmarkFill,
+} from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -22,8 +22,10 @@ export default function Tour({ data }) {
   const router = useRouter();
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(data.budget.value);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   const onHandleBack = () => router.back();
+  const onHandleBookmark = () => setIsBookmarked((prev) => !prev);
   const onHandleCount = (op) => {
     if (op === "plus" && count < data.reservationsAvailable) {
       setCount(count + 1);
@@ -72,6 +74,19 @@ export default function Tour({ data }) {
             {data?.numberOfDays} {data?.numberOfDays === 1 ? "giorno" : "giorni"}
           </p>
         </div>
+        {isBookmarked ? (
+          <BsBookmarkFill
+            className={styles.Tour__bookmarkIcon}
+            alt="bookmarked"
+            onClick={onHandleBookmark}
+          />
+        ) : (
+          <BsBookmark
+            className={styles.Tour__bookmarkIcon}
+            alt="bookmark"
+            onClick={onHandleBookmark}
+          />
+        )}
       </div>
       <div className={styles.Tour__container}>
         <div className={styles.Tour__info}>
