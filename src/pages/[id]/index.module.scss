@@ -66,6 +66,18 @@
     }
   }
 
+  &__bookmarkIcon {
+    width: rem(30px);
+    height: rem(30px);
+    position: absolute;
+    bottom: $paddingSmall;
+    right: $paddingSmall;
+    color: $background-primary;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 99;
+  }
+
   &__details {
     position: absolute;
     width: 40%;
@@ -218,9 +230,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
-}
-
+// media query Laptop and Desktop
 @media screen and (min-width: 768px) {
   .Tour {
     padding: 0 $paddingExtraLarge $paddingMedium $paddingExtraLarge;
@@ -244,9 +254,16 @@
     }
 
     &__backIcon {
-      width: rem(50px);
-      height: rem(50px);
+      width: rem(45px);
+      height: rem(45px);
       top: $paddingMedium;
+      right: $paddingExtraLarge;
+    }
+
+    &__bookmarkIcon {
+      width: rem(35px);
+      height: rem(35px);
+      bottom: $paddingMedium;
       right: $paddingExtraLarge;
     }
 
@@ -286,8 +303,8 @@
 
     &__countIcon {
       svg {
-        width: rem(50px);
-        height: rem(50px);
+        width: rem(45px);
+        height: rem(45px);
       }
 
       &__container {
@@ -335,10 +352,6 @@
 
     &__text {
       font-size: rem(16px);
-    }
-
-    &__reservationsText {
-      font-size: rem(14px);
     }
 
     &__reservations,
