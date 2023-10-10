@@ -215,7 +215,7 @@
     opacity: 0.8;
   }
 
-  &__accessory {
+  &__thingsToKnow {
     @include flexboxCenter;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -352,7 +352,7 @@
       height: rem(35px);
     }
 
-    &__accessory {
+    &__thingsToKnow {
       @include flexboxCenter;
       flex-wrap: wrap;
       gap: rem(15px);

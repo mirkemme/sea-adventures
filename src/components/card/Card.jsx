@@ -12,7 +12,11 @@ const Card = ({ data }) => {
   return (
     <div className={styles.Card}>
       <p className={styles.Card__price}>
-        <span>{data.budget.value}€</span> per cabina
+        <span>
+          {data.budget.value}
+          {data.budget.currencyCode}
+        </span>{" "}
+        {data.budget.costType}
       </p>
       <h2 className={styles.Card__locality}>{data.title}</h2>
       <div className={styles.Card__container}>
@@ -39,7 +43,9 @@ const Card = ({ data }) => {
         </div>
       </div>
       <div className={styles.Card__wrapper}>
-        <p className={styles.Card__cabins}>{data.reservations} Cabine</p>
+        <p className={styles.Card__cabins}>
+          {data.reservations} {data.reservationsType}
+        </p>
         <p className={styles.Card__availability}>
           Disponibilità <span>{data.reservationsAvailable}</span>
         </p>
