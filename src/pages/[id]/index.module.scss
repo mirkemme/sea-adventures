@@ -25,24 +25,46 @@
     width: 100%;
     height: 70px;
     padding: $paddingExtraSmall $paddingSmall;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     z-index: 99;
-    background: rgb(0, 0, 0);
     background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.9) 0%,
       rgba(255, 255, 255, 0) 100%
     );
+
+    &__container {
+      @include flexboxCenter;
+      gap: rem(20px);
+    }
+  }
+
+  &__title {
+    line-height: 1;
   }
 
   &__backIcon {
     width: rem(40px);
     height: rem(40px);
-    position: absolute;
-    top: $paddingSmall;
-    right: $paddingSmall;
+    display: block;
     color: $background-primary;
     opacity: 0.8;
     cursor: pointer;
+  }
+
+  &__bookmarkIcon {
+    width: rem(32px);
+    height: rem(32px);
+    color: $background-primary;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  //disabilita il click sull'icona bookmark quando la finestra di dialogo è aperta
+  &__noClick {
+    pointer-events: none;
   }
 
   &__gallery {
@@ -64,18 +86,6 @@
       display: block;
       object-fit: cover;
     }
-  }
-
-  &__bookmarkIcon {
-    width: rem(30px);
-    height: rem(30px);
-    position: absolute;
-    bottom: $paddingSmall;
-    right: $paddingSmall;
-    color: $background-primary;
-    opacity: 0.8;
-    cursor: pointer;
-    z-index: 99;
   }
 
   &__details {
@@ -230,13 +240,30 @@
   }
 }
 
-// media query Laptop and Desktop
+// MEDIA QUERY LAPTOP AND DESKTOP
 @media screen and (min-width: 768px) {
   .Tour {
     padding: 0 $paddingExtraLarge $paddingMedium $paddingExtraLarge;
 
     &__wrapper {
       padding: $paddingSmall;
+    }
+
+    &__header {
+      height: 100px;
+      padding-top: $paddingMedium;
+      padding-left: $paddingExtraLarge;
+      padding-right: $paddingExtraLarge;
+    }
+
+    &__backIcon {
+      width: rem(45px);
+      height: rem(45px);
+    }
+
+    &__bookmarkIcon {
+      width: rem(40px);
+      height: rem(40px);
     }
 
     &__gallery {
@@ -246,25 +273,6 @@
       &__container {
         height: 450px;
       }
-    }
-
-    &__header {
-      height: 100px;
-      padding: $paddingMedium $paddingExtraLarge;
-    }
-
-    &__backIcon {
-      width: rem(45px);
-      height: rem(45px);
-      top: $paddingMedium;
-      right: $paddingExtraLarge;
-    }
-
-    &__bookmarkIcon {
-      width: rem(35px);
-      height: rem(35px);
-      bottom: $paddingMedium;
-      right: $paddingExtraLarge;
     }
 
     &__details {

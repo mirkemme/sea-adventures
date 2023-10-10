@@ -17,15 +17,29 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Button from "@/components/button";
+import Dialog from "@/components/dialog";
 
 export default function Tour({ data }) {
   const router = useRouter();
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(data.budget.value);
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  function openModalDialog() {
+    setIsDialogOpen((prev) => !prev);
+    const timer = setTimeout(() => {
+      setIsDialogOpen((prev) => !prev);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }
 
   const onHandleBack = () => router.back();
-  const onHandleBookmark = () => setIsBookmarked((prev) => !prev);
+  const onHandleBookmark = () => {
+    setIsBookmarked((prev) => !prev);
+    openModalDialog();
+  };
   const onHandleCount = (op) => {
     if (op === "plus" && count < data.reservationsAvailable) {
       setCount(count + 1);
@@ -38,13 +52,39 @@ export default function Tour({ data }) {
 
   return (
     <section className={styles.Tour}>
+      {isBookmarked ? (
+        <Dialog isDialogOpen={isDialogOpen} label={"Aggiunto ai salvati"} />
+      ) : (
+        <Dialog isDialogOpen={isDialogOpen} label={"Rimosso dai salvati"} />
+      )}
+
       <header className={styles.Tour__header}>
         <h1 className={styles.Tour__title}>{data?.title}</h1>
-        <BsArrowLeftSquareFill
-          className={styles.Tour__backIcon}
-          onClick={onHandleBack}
-          alt="back"
-        />
+        <div className={styles.Tour__header__container}>
+          {isBookmarked ? (
+            <BsBookmarkFill
+              className={`${styles.Tour__bookmarkIcon} ${
+                isDialogOpen && styles.Tour__noClick
+              }`}
+              alt="bookmarked"
+              onClick={onHandleBookmark}
+            />
+          ) : (
+            <BsBookmark
+              className={`${styles.Tour__bookmarkIcon} ${
+                isDialogOpen && styles.Tour__noClick
+              }`}
+              alt="bookmark"
+              onClick={onHandleBookmark}
+              disabled="disabled"
+            />
+          )}
+          <BsArrowLeftSquareFill
+            className={styles.Tour__backIcon}
+            onClick={onHandleBack}
+            alt="back"
+          />
+        </div>
       </header>
       <div className={`${styles.Tour__gallery} `}>
         <Swiper
@@ -74,19 +114,6 @@ export default function Tour({ data }) {
             {data?.numberOfDays} {data?.numberOfDays === 1 ? "giorno" : "giorni"}
           </p>
         </div>
-        {isBookmarked ? (
-          <BsBookmarkFill
-            className={styles.Tour__bookmarkIcon}
-            alt="bookmarked"
-            onClick={onHandleBookmark}
-          />
-        ) : (
-          <BsBookmark
-            className={styles.Tour__bookmarkIcon}
-            alt="bookmark"
-            onClick={onHandleBookmark}
-          />
-        )}
       </div>
       <div className={styles.Tour__container}>
         <div className={styles.Tour__info}>
