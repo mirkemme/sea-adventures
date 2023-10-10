@@ -179,8 +179,8 @@ export default function Tour({ data }) {
         </div>
       </div>
       <div className={styles.Tour__container}>
-        <h3>Accessori</h3>
-        <div className={styles.Tour__accessory}>
+        <h3>Da sapere</h3>
+        <div className={styles.Tour__thingsToKnow}>
           <div className={styles.Tour__wrapper}>
             <h6 className={styles.Tour__text}>disponibilità</h6>
             <p className={styles.Tour__reservationsAvailable}>
