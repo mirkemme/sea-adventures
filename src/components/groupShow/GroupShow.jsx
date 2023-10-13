@@ -14,6 +14,7 @@ const GroupShow = ({ props }) => {
           </header>
           <CardList
             data={data?.filter((tour) => tour?.departure?.Port?.includes(item?.Port))}
+            isButtonVisible={false}
           />
         </div>
       ))}

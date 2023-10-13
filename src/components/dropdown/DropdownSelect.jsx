@@ -1,41 +1,34 @@
-import { useState } from "react";
 import styles from "./DropdownSelect.module.scss";
+import { updateDropdownList } from "@/utils/fn/updateDropdownList";
 
 const DropdownSelect = (props) => {
-  const { options, handleChange } = props || null;
-  const { setOtherSelected } = props || null;
-  const { selected } = props || null;
-  const { setSelected } = props || null;
-  const [isOpen, setIsOpen] = useState(false);
+  const { options, handleChange, dropdown } = props || null;
+  const { dropdownList, setDropdownList } = props || null;
+  console.log(options);
+  const onHandleClick = () =>
+    setDropdownList(updateDropdownList(dropdownList, dropdown.id));
 
   const handleValue = (option) => {
-    if (option.label === "Mostra tutti") {
-      setSelected("");
-      setIsOpen((prev) => !prev);
-      handleChange(option);
-      setOtherSelected("");
-    } else {
-      setSelected(option);
-      setIsOpen((prev) => !prev);
-      handleChange(option);
-      setOtherSelected("");
-    }
+    if (option.label === "Mostra tutti")
+      setDropdownList(updateDropdownList(dropdownList, dropdown.id, ""));
+    else setDropdownList(updateDropdownList(dropdownList, dropdown.id, option.label));
+    handleChange(option);
   };
 
   return (
     <div className={styles.DropdownSelect}>
       <div
         className={`${styles.DropdownSelect__dropdown} ${
-          isOpen ? styles.DropdownSelect__arrowTransform : ""
+          dropdownList[dropdown.id].isOpen ? styles.DropdownSelect__arrowTransform : ""
         }`}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={onHandleClick}
       >
-        {selected ? selected?.label : options.options[0].label}
+        {dropdown.selectedOption ? dropdown.selectedOption : options.options[0].label}
       </div>
       {options && (
         <ul
           className={`${styles.DropdownSelect__options} ${
-            isOpen ? styles.DropdownSelect__isOpen : ""
+            dropdownList[dropdown.id].isOpen ? styles.DropdownSelect__isOpen : ""
           }`}
         >
           {options?.options?.map((option) => (

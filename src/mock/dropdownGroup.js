@@ -1,4 +1,4 @@
-export const groupList = {
+export const dropdownGroup = {
   name: "groupList",
   id: "groupList",
   options: [

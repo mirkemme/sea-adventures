@@ -1,15 +1,12 @@
 import styles from "./Button.module.scss";
-import { LuPlusSquare, LuMinusSquare } from "react-icons/lu";
 
-const Button = ({ handleClick, type }) => {
+const Button = ({ handleClick, label }) => {
   return (
-    <>
-      {type === "plus" ? (
-        <LuPlusSquare onClick={handleClick} />
-      ) : (
-        <LuMinusSquare onClick={handleClick} />
-      )}
-    </>
+    <div className={styles.Button}>
+      <button className={styles.Button__button} onClick={handleClick}>
+        {label}
+      </button>
+    </div>
   );
 };
 
