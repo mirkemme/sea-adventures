@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { API_BASE_URL } from "..";
 import styles from "./index.module.scss";
-import { formatTime } from "@/utils/formatTime";
-import { formatDate } from "@/utils/formatDate";
+import { formatTime } from "@/utils/fn/formatTime";
+import { formatDate } from "@/utils/fn/formatDate";
 import { LuSailboat } from "react-icons/lu";
 import {
   BsArrowLeftSquareFill,
@@ -16,7 +16,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Button from "@/components/button";
+import IconButton from "@/components/iconButton";
 import Dialog from "@/components/dialog";
 
 export default function Tour({ data }) {
@@ -121,19 +121,11 @@ export default function Tour({ data }) {
             <p className={styles.Tour__reservationsType}>{data.reservationsType}</p>
             <div className={styles.Tour__counter}>
               <div className={styles.Tour__countIcon}>
-                <Button
-                  handleClick={() => onHandleCount("minus")}
-                  count={count}
-                  type={"minus"}
-                />
+                <IconButton handleClick={() => onHandleCount("minus")} type={"minus"} />
               </div>
               <h3 className={styles.Tour__count}>{count}</h3>
               <div className={styles.Tour__countIcon}>
-                <Button
-                  handleClick={() => onHandleCount("plus")}
-                  count={count}
-                  type={"plus"}
-                />
+                <IconButton handleClick={() => onHandleCount("plus")} type={"plus"} />
               </div>
             </div>
           </div>

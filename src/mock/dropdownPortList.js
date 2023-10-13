@@ -1,4 +1,4 @@
-export const options = {
+export const dropdownPortList = {
   name: "portList",
   id: "portList",
   options: [

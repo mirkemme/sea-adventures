@@ -18,7 +18,7 @@ const Itinerary = ({ data }) => {
   return (
     <section className={styles.Itinerary}>
       <h3>Avventure da scoprire</h3>
-      <CardList data={randomItinerary} />
+      <CardList data={randomItinerary} isButtonVisible={false} />
     </section>
   );
 };

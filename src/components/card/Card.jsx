@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { formatTime } from "@/utils/formatTime";
-import { formatDate } from "@/utils/formatDate";
+import { formatTime } from "@/utils/fn/formatTime";
+import { formatDate } from "@/utils/fn/formatDate";
 import styles from "./Card.module.scss";
 import arrowIcon from "../../../public/assets/icons/right-arrow-alt.svg";
 
