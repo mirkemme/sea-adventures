@@ -18,7 +18,6 @@ import Banner from "@/components/banner";
 export const API_BASE_URL = "https://api.npoint.io/fb404a223a346cab07ec";
 
 export default function Home({ data }) {
-  const portList = useRef([]);
   const [inputDropdownValue, setInputDropdownValue] = useState({ label: "Mostra tutti" });
   const [dataFiltered, setDataFiltered] = useState([]);
   // array per gestire l'apertura e la chiusura di n dropdown
@@ -26,6 +25,8 @@ export default function Home({ data }) {
     { id: 0, label: "groupList", isOpen: false, selectedOption: "" },
     { id: 1, label: "portList", isOpen: false, selectedOption: "" },
   ]);
+  const portList = useRef([]);
+  const isButtonVisible = useRef(true);
 
   // crea un array con tutti i porti di partenza
   useEffect(() => {
@@ -38,6 +39,7 @@ export default function Home({ data }) {
   useEffect(() => {
     if (inputDropdownValue.label === "Mostra tutti") {
       setDataFiltered(data);
+      isButtonVisible.current = true;
     } else if (
       inputDropdownValue.label !== "Mostra per porto di partenza" &&
       inputDropdownValue.label !== "Seleziona un porto"
@@ -45,6 +47,7 @@ export default function Home({ data }) {
       setDataFiltered(
         data.filter((item) => item.departure.Port.includes(inputDropdownValue.label))
       );
+      isButtonVisible.current = false;
     }
   }, [inputDropdownValue.value]);
 
@@ -84,7 +87,7 @@ export default function Home({ data }) {
           {inputDropdownValue.label === "Mostra per porto di partenza" ? (
             <GroupShow props={{ data, portList }} />
           ) : (
-            <CardList data={dataFiltered} isButtonVisible={false} />
+            <CardList data={dataFiltered} isButtonVisible={isButtonVisible.current} />
           )}
         </section>
         <Banner />
