@@ -1,6 +1,6 @@
 .Card {
-  width: 320px;
-  height: 320px;
+  width: rem(360px);
+  height: rem(360px);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -88,25 +88,6 @@
 
     span {
       font-weight: 600;
-    }
-  }
-
-  &__buttonContainer {
-    width: calc(100% - $paddingMedium - $paddingMedium);
-    position: absolute;
-    bottom: $paddingMedium;
-    left: $paddingMedium;
-
-    &__button {
-      width: 100%;
-      height: 45px;
-      background-color: $btn-main;
-      color: white;
-      border: none;
-      border-radius: $roundedExtraSmall;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
     }
   }
 }

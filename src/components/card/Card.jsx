@@ -4,6 +4,7 @@ import { formatTime } from "@/utils/fn/formatTime";
 import { formatDate } from "@/utils/fn/formatDate";
 import styles from "./Card.module.scss";
 import arrowIcon from "../../../public/assets/icons/right-arrow-alt.svg";
+import Button from "../button";
 
 const Card = ({ data }) => {
   const router = useRouter();
@@ -50,14 +51,7 @@ const Card = ({ data }) => {
           Disponibilità <span>{data.reservationsAvailable}</span>
         </p>
       </div>
-      <div className={styles.Card__buttonContainer}>
-        <button
-          className={styles.Card__buttonContainer__button}
-          onClick={() => onHandleClick(data.id)}
-        >
-          prenota
-        </button>
-      </div>
+      <Button handleClick={() => onHandleClick(data.id)} label={"prenota"} />
     </div>
   );
 };
